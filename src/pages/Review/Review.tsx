@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { TableProps, Table, T, Button } from '@admiral-ds/react-ui';
+import { Table, T, Button } from '@admiral-ds/react-ui';
 import { useEffect } from 'react';
 import { StyledBtn, StyledReviewPage } from './Review.styled';
 import { useGetReviewList } from './api/review.hook';
 import { IReviewList } from './api/review.types';
 import { useFilters } from './components/Filters/Filters.hook';
 
-const Review = (props: TableProps) => {
+const Review = () => {
   const [rows, setRows] = React.useState<(IReviewList & { selected?: boolean })[]>([]);
   const { cols, filters, handleResize } = useFilters();
   const { data, isSuccess } = useGetReviewList(filters);
@@ -40,7 +40,6 @@ const Review = (props: TableProps) => {
         </Button>
       </StyledBtn>
       <Table
-        {...props}
         headerLineClamp={2}
         displayRowSelectionColumn
         rowList={rows}
