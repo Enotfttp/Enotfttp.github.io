@@ -1,0 +1,5 @@
+import{u as n,v as l,F as o,N as s,R as d,k as c,H as u}from"./index-Bhzfcokq.js";import{T as m,R as p}from"./SearchWithFilter-DK6-i9WG-zXYICZnL.js";const v=c.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`,a=[{name:"eventDate",title:"Дата события",type:"date",width:"25%",sortable:!0},{name:"eventType",title:"Вид события",width:"16.5%"},{name:"rollbackDate",title:"Дата отката события",type:"date",width:"25%"},{name:"execDate",title:"Дата испольнения",width:"25%",type:"date",sortable:!0}];class y{async getEventsList(e){return(await u.post(`api/events-list/${e==null?void 0:e.serviceId}`,{filters:e})).data}}const h=new y,x=(t,e)=>o({queryKey:["events-list",t],queryFn:()=>h.getEventsList(t),...e}),L=()=>{const{id:t}=n();if(!t)throw new Error("Вы не выбрали подписку");const[e,r]=l.useState(),{data:i}=x({...e,serviceId:t});return s.jsxs(v,{children:[s.jsx(d,{font:"Header/H1",children:"События"}),s.jsx(m,{selectPlaceholder:"Выберите поле из выпадающего списка",columnList:a,setFilters:r,searchPlaceholder:"Введите значение для поиска"}),s.jsx(p,{columnList:a,rowList:i||[],queryKey:"events-list"})]})};export{L as default};
